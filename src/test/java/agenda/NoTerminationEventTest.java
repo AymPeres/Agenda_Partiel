@@ -37,33 +37,33 @@ public class NoTerminationEventTest {
     @Test
     public void eventIsInItsStartDay() {
         assertTrue(neverEnding.isInDay(nov_1_2020),
-            "Un événement a lieu dans son jour de début");
+                "Un événement a lieu dans son jour de début");
     }
 
     @Test
     public void eventIsNotInDayBefore() {
         assertFalse(neverEnding.isInDay(nov_1_2020.minusDays(1)),
-            "Un événement n'a pas lieu avant son jour de début");
+                "Un événement n'a pas lieu avant son jour de début");
     }
 
     @Test
     public void eventOccurs10DayAfter() {
         assertTrue(neverEnding.isInDay(nov_1_2020.plusDays(10)),
-            "Cet événement doit se produire tous les jours");
+                "Cet événement doit se produire tous les jours");
     }
-    
+
     @Test
     public void eventIsNotInExceptionDays() {
         neverEnding.addException(nov_1_2020.plusDays(2)); // ne se produit pas à J+2
         neverEnding.addException(nov_1_2020.plusDays(4)); // ne se produit pas à J+4
         assertTrue(neverEnding.isInDay(nov_1_2020.plusDays(1)),
-            "Cet événement se produit tous les jours sauf exceptions");
+                "Cet événement se produit tous les jours sauf exceptions");
         assertFalse(neverEnding.isInDay(nov_1_2020.plusDays(2)),
-            "Cet événement ne se produit pas à J+2");
+                "Cet événement ne se produit pas à J+2");
         assertTrue(neverEnding.isInDay(nov_1_2020.plusDays(3)),
-            "Cet événement se produit tous les jours sauf exceptions");
+                "Cet événement se produit tous les jours sauf exceptions");
         assertFalse(neverEnding.isInDay(nov_1_2020.plusDays(4)),
-            "Cet événement ne se produit pas à J+4");
+                "Cet événement ne se produit pas à J+4");
     }
-    
+
 }
