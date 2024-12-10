@@ -1,2 +1,60 @@
-Ecrire ici votre réponse à la question UML.
+COMPARAISON ENTRE LES DEUX DIAGRAMMES UML :
+
+Diagramme du professeur
+Avantages :
+
+    Clarté et lisibilité :
+        Minimaliste, ce qui permet de comprendre rapidement les relations principales entre les classes.
+        Bonne organisation des classes avec une hiérarchie claire (Event, RepetitiveEvent, FixedTerminationEvent).
+
+    Notation standardisée :
+        Utilisation des stéréotypes UML comme « constructor » et « query ».
+        Indication des attributs en lecture seule (readOnly).
+
+    Simplicité :
+        Convient pour une vue d’ensemble ou une présentation pédagogique.
+
+    Packages contextualisés :
+        Les dépendances avec des types externes comme LocalDate, LocalDateTime, et Duration sont mentionnées.
+
+Inconvénients :
+
+    Manque de détails fonctionnels :
+        Absence de mécanismes précis pour la gestion des répétitions ou des exceptions.
+        Terminaison des événements répétitifs mentionnée mais peu détaillée.
+
+    Pas orienté vers l’implémentation :
+        Nécessite une réflexion supplémentaire avant d’être codé.
+
+
+
+
+
+
+
+Mon diagramme
+Avantages :
+
+    Détails opérationnels :
+        Inclusion de méthodes concrètes comme addException(day: LocalDate) et isRepeatedOnDate(currentDate, startDate).
+        Ajout de la classe Termination pour modéliser la fin des événements répétitifs.
+
+    Gestion des cas complexes :
+        Gestion explicite des exceptions avec exceptions: List<LocalDate>.
+        Relation claire entre Repetition et Termination.
+
+    Riche en relations et concepts :
+        Relations détaillées (#has, #terminates, #doesNotOccurAt).
+
+Inconvénients :
+
+    Complexité visuelle :
+        Diagramme plus chargé, ce qui peut rendre la compréhension difficile.
+        Relations croisées qui peuvent sembler confuses.
+
+    Notation partiellement standard :
+        Certaines notations comme #has ou ~exceptions ne suivent pas les normes UML classiques.
+
+    Risque de surmodélisation :
+        Ajout de détails qui pourraient être perçus comme excessifs pour un premier niveau d’abstraction.
 
